@@ -1,32 +1,69 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import logo from "../assets/logo.png";
 import cart_icon from "../assets/cart_icon.png";
+import { FaBars, FaTimes } from 'react-icons/fa'
 import { Link } from "react-router-dom";
 import { ShopContext } from "../context/ShopContext";
 
 const Navbar = () => {
+  const [nav, setNav] = useState(false)
+  const links = [
+    {
+      id: 1,
+      link: 'Shop',
+      src: '/'
+    },
+    {
+      id: 2,
+      link: 'Men',
+      src: '/mens'
+    },
+    {
+      id: 3,
+      link: 'Women',
+      src: '/womens'
+    },
+    {
+      id: 4,
+      link: 'Kids',
+      src: '/kids'
+    },
+  ]
   const { getTotalCartItems } = useContext(ShopContext);
   return (
-    <div className=" flex justify-around items-center h-20 w-full bg-white shadow-lg z-50 fixed top-0 left-0">
-      <div className=" flex justify-center items-center gap-2">
+    <div className=" flex justify-between md:justify-around items-center h-24 md:h-20 w-full bg-white shadow-lg z-50 fixed top-0 left-0">
+      <div className=" flex flex-col md:flex-row justify-center items-center md:gap-2">
         <img src={logo} alt="logo" />
-        <p className=" font-semibold text-3xl">SHOPPER</p>
+        <p className=" font-semibold text-lg pl-1 md:pl-0 md:text-3xl">YOUR SHOPPER</p>
       </div>
 
-      <ul className=" flex items-center gap-12 font-semibold cursor-pointer">
-        <li className=" hover:border-b-2 hover:border-red-600 active:text-red-700">
-          <Link to="/">Shop</Link>
-        </li>
-        <li className=" hover:border-b-2 hover:border-red-600 active:text-red-600 focus:text-red-600">
-          <Link to="/mens">Men</Link>
-        </li>
-        <li className=" hover:border-b-2 hover:border-red-600 active:border-red-700 focus:border-red-600">
-          <Link to="/womens">Women</Link>
-        </li>
-        <li className=" hover:border-b-2 hover:border-red-600 active:text-red-700">
-          <Link to="/kids">Kids</Link>
-        </li>
+      <ul className=" hidden md:flex gap-3">
+        {
+          links.map(({ id, link, src }) => (
+            <li key={id} className=" px-3 cursor-pointer font-medium capitalize text-red-600 hover:scale-110 duration-200">
+              <Link to={src}>{link}</Link>
+            </li>
+          ))
+        }
       </ul>
+
+      <div onClick={() => setNav(!nav)} className=" cursor-pointer text-red-600 z-10 md:hidden">
+        {nav ? <FaTimes size={20}/> : <FaBars size={20} />}
+      </div>
+
+      {
+        nav && (
+          <ul className=" flex flex-col items-center justify-center absolute top-0 left-0 w-full h-screen bg-gradient-to-b from-black to-gray-600 text-gray-100 '">
+            {
+              links.map(({ id, link, src }) => (
+                <li key={id} className=" cursor-pointer capitalize p-5 text-3xl">
+                  <Link onClick={() => setNav(!nav)} to={src} smooth duration={500}>{link}</Link>
+                </li>
+              ))
+            }
+          </ul>
+        )
+      }
 
       <div className="flex items-center gap-10">
         <Link to="/signup">
@@ -34,6 +71,7 @@ const Navbar = () => {
             Sign Up
           </button>
         </Link>
+
         <Link to="/cart">
           <img src={cart_icon} alt="cartIcon" />
         </Link>

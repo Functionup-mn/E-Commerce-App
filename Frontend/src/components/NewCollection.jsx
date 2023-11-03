@@ -10,7 +10,7 @@ const NewCollection = () => {
         <hr className="border-b-2 border-black w-[30%] rounded-lg my-3" />
       </div>
 
-      <div className=" grid grid-cols-4 gap-4 mx-[10%]">
+      <div className=" flex flex-col md:grid md:grid-cols-4 gap-4 mx-[10%]">
         {new_collections.map((item) => (
           <Item
             key={item.id}

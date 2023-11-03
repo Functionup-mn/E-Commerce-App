@@ -9,10 +9,10 @@ const Footer = () => {
     <div className=" flex flex-col items-center justify-end max-w-full gap-8">
       <div className=" flex justify-center items-center gap-4">
         <img src={logo} alt="" />
-        <p className=" text-3xl text-gray-700 font-semibold">SHOPPER</p>
+        <p className=" text-3xl text-gray-700 font-semibold">YOUR SHOPPER</p>
       </div>
       <div className=" w-[30%]">
-        <ul className=" flex justify-between items-center cursor-pointer">
+        <ul className=" flex flex-col sm:flex-row justify-between items-center cursor-pointer">
           <li>Company</li>
           <li>Products</li>
           <li>Offices</li>
@@ -20,7 +20,7 @@ const Footer = () => {
           <li>Contact</li>
         </ul>
       </div>
-      <div className=" flex w-[10%] opacity-80 justify-between items-center cursor-pointer">
+      <div className=" flex opacity-80 gap-5 justify-between items-center cursor-pointer">
         <img src={instagram_icon} alt="instagram-icon" />
         <img src={pinterest_icon} alt="pinterest-icon" />
         <img src={whatsapp_icon} alt="whatsapp-icon" />

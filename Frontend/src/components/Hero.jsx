@@ -5,8 +5,8 @@ import hero_image from "../assets/hero_image.png";
 
 const Hero = () => {
   return (
-    <div className=" flex justify-between w-full h-scree bg-gradient-to-b from-pink-200 to-white">
-      <div className=" flex flex-col justify-center  ml-[10%] gap-4">
+    <div className=" flex flex-col-reverse md:flex-row justify-between w-full h-scree bg-gradient-to-b from-pink-200 to-white">
+      <div className=" flex flex-col justify-center  mx-[10%] gap-4">
         <div className=" font-semibold text-xl">NEW ARRIVALS ONLY</div>
         <div className=" flex flex-col font-semibold text-4xl">
           <div className=" flex">

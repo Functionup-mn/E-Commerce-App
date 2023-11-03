@@ -6,7 +6,7 @@ import { ShopContext } from "../context/ShopContext";
 const ProductDisplay = ({ product }) => {
   const { addToCart } = useContext(ShopContext);
   return (
-    <div className=" max-w-[80%] mt-10 mx-[10%] flex gap-10">
+    <div className=" max-w-[80%] mt-10 mx-[10%] flex flex-col md:flex-row gap-10">
       <div className=" flex gap-[17px] ">
         <div className="flex flex-col gap-[16px]">
           <img className=" h-28" src={product.image} alt="" />
@@ -19,7 +19,7 @@ const ProductDisplay = ({ product }) => {
         </div>
       </div>
 
-      <div className=" flex flex-col gap-5 w-[50%]">
+      <div className=" flex flex-col gap-5 w-[40%]">
         <div className=" font-semibold text-2xl">{product.name}</div>
         <div className=" flex items-center">
           <img src={star_icon} alt="" />

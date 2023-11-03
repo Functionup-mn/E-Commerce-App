@@ -8,7 +8,7 @@ const RelatedProducts = () => {
       <p className=" text-3xl font-semibold">Related Products</p>
       <hr className=" border-b-2 border-black w-[10%] rounded-lg my-2" />
 
-      <div className=" flex mx-[10%] gap-4 mt-5">
+      <div className=" flex flex-col md:flex-row mx-[10%] gap-4 mt-5">
         {data.map((item) => (
           <Item
             key={item.id}

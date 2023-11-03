@@ -25,7 +25,7 @@ const ShopCategory = (props) => {
         </div>
       </div>
 
-      <div className=" w-[80%] grid grid-cols-4 gap-4">
+      <div className=" w-[80%] flex flex-col md:grid md:grid-cols-4 gap-4">
         {allProducts.map((item) => {
           if (props.category === item.category) {
             return (

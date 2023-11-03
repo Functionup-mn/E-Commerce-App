@@ -9,9 +9,9 @@ const NewsLetter = () => {
         </p>
         <p className=" text-sm">Subscribe to our newsletter and stay updated</p>
 
-        <div className="flex  w-[50%]">
+        <div className="flex w-[90%] mr-8 md:w-[50%]">
           <input
-            className=" px-12 py-2.5 w-full rounded-3xl focus:outline-none border-[1px] border-gray-500"
+            className=" px-2 md:px-12 py-2.5 w-full rounded-3xl focus:outline-none border-[1px] border-gray-500"
             type="text"
             placeholder="Enter Your Email"
           />
